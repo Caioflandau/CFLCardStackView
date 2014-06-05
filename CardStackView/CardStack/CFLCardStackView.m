@@ -54,7 +54,12 @@
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
     for (NSInteger i = self.cardViews.count-1; i >= 0; i--) {
-//        NSLog(@"i = %d", i);
+        
+        if (i >= 3)
+            continue;
+        
+        NSLog(@"i = %d", i);
+        
         UIView *view = [self.cardViews objectAtIndex:i];
         
         CGPoint center = [self convertPoint:self.center fromView:view];
@@ -87,7 +92,6 @@
         
         [self addSubview:view];
     }
-//    self.topCardView.alpha = 1;
 }
 
 -(UIView *)dequeueViewForCardAtIndex:(NSInteger)index {
