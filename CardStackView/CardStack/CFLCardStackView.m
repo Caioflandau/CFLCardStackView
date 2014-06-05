@@ -7,8 +7,10 @@
 //
 
 #import "CFLCardStackView.h"
+#import "CFLCardPanGesture.h"
 
 @interface CFLCardStackView () {
+    CFLCardPanGesture *gestureRecognizer;
 }
 
 @property (nonatomic) NSInteger numberOfCards;
@@ -30,6 +32,8 @@
 
 -(void)awakeFromNib {
     [self reloadData];
+    gestureRecognizer = [[CFLCardPanGesture alloc] init];
+    gestureRecognizer.cardStackView = self;
 }
 
 -(void)reloadData {
@@ -49,11 +53,41 @@
     //Remove all cards...
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
-    for (NSInteger i = self.cardViews.count; i > 0; i--) {
-        UIView *view = [self.cardViews objectAtIndex:i-1];
-        view.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+    for (NSInteger i = self.cardViews.count-1; i >= 0; i--) {
+//        NSLog(@"i = %d", i);
+        UIView *view = [self.cardViews objectAtIndex:i];
+        
+        CGPoint center = [self convertPoint:self.center fromView:view];
+        
+        switch (i) {
+            case 2:
+                view.alpha = 0.5;
+                center.x = center.x+10;
+                center.y = center.y-10;
+                break;
+                
+            case 1:
+                view.alpha = 0.75;
+                center.x = center.x;
+                center.y = center.y;
+                break;
+                
+            case 0:
+                view.alpha = 1;
+                center.x = center.x - 10;
+                center.y = center.y + 10;
+                break;
+                
+            default:
+                view.alpha = 0;
+                break;
+        }
+        
+        view.center = center;
+        
         [self addSubview:view];
     }
+//    self.topCardView.alpha = 1;
 }
 
 -(UIView *)dequeueViewForCardAtIndex:(NSInteger)index {
@@ -62,6 +96,10 @@
         view = [self.cardViews objectAtIndex:index];
     }
     return view;
+}
+
+-(UIView *)topCardView {
+    return [self.cardViews firstObject];
 }
 
 @end

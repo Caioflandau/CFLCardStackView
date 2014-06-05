@@ -24,7 +24,7 @@
 		257AB0C6193FD86600FBE540 /* CFLCardStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 257AB0C5193FD86600FBE540 /* CFLCardStackView.m */; };
 		25977F151940AC92009F41D2 /* CFLCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25977F131940AC92009F41D2 /* CFLCardViewController.m */; };
 		25977F161940AC92009F41D2 /* CFLCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25977F141940AC92009F41D2 /* CFLCardViewController.xib */; };
-		25977F1A1940B7E6009F41D2 /* CFLCardStackPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 25977F191940B7E6009F41D2 /* CFLCardStackPanGestureRecognizer.m */; };
+		25977F1D1940BB96009F41D2 /* CFLCardPanGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 25977F1C1940BB96009F41D2 /* CFLCardPanGesture.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,8 +62,8 @@
 		25977F121940AC92009F41D2 /* CFLCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFLCardViewController.h; sourceTree = "<group>"; };
 		25977F131940AC92009F41D2 /* CFLCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFLCardViewController.m; sourceTree = "<group>"; };
 		25977F141940AC92009F41D2 /* CFLCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CFLCardViewController.xib; sourceTree = "<group>"; };
-		25977F181940B7E6009F41D2 /* CFLCardStackPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFLCardStackPanGestureRecognizer.h; sourceTree = "<group>"; };
-		25977F191940B7E6009F41D2 /* CFLCardStackPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFLCardStackPanGestureRecognizer.m; sourceTree = "<group>"; };
+		25977F1B1940BB96009F41D2 /* CFLCardPanGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFLCardPanGesture.h; sourceTree = "<group>"; };
+		25977F1C1940BB96009F41D2 /* CFLCardPanGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFLCardPanGesture.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,8 +180,8 @@
 		25977F171940B78B009F41D2 /* Gesture */ = {
 			isa = PBXGroup;
 			children = (
-				25977F181940B7E6009F41D2 /* CFLCardStackPanGestureRecognizer.h */,
-				25977F191940B7E6009F41D2 /* CFLCardStackPanGestureRecognizer.m */,
+				25977F1B1940BB96009F41D2 /* CFLCardPanGesture.h */,
+				25977F1C1940BB96009F41D2 /* CFLCardPanGesture.m */,
 			);
 			path = Gesture;
 			sourceTree = "<group>";
@@ -287,8 +287,8 @@
 			files = (
 				257AB09F193FD72400FBE540 /* CFLAppDelegate.m in Sources */,
 				25977F151940AC92009F41D2 /* CFLCardViewController.m in Sources */,
-				25977F1A1940B7E6009F41D2 /* CFLCardStackPanGestureRecognizer.m in Sources */,
 				257AB0C6193FD86600FBE540 /* CFLCardStackView.m in Sources */,
+				25977F1D1940BB96009F41D2 /* CFLCardPanGesture.m in Sources */,
 				257AB09B193FD72400FBE540 /* main.m in Sources */,
 				257AB0A5193FD72400FBE540 /* CFLViewController.m in Sources */,
 			);

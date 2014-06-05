@@ -43,7 +43,7 @@
     if (view == nil) {
         CFLCardViewController *cardVc = [[CFLCardViewController alloc] init];
         view = cardVc.view;
-        cardVc.lblText.text = [NSString stringWithFormat:@"Card #%d", index];
+        cardVc.lblText.text = [NSString stringWithFormat:@"Card #%d", (int)index];
     }
     return view;
 }

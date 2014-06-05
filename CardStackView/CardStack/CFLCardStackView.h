@@ -12,6 +12,8 @@
 #pragma mark - Interface
 @interface CFLCardStackView : UIView
 
+@property (readonly) UIView *topCardView;
+
 -(UIView*)dequeueViewForCardAtIndex:(NSInteger)index;
 -(void)reloadData;
 

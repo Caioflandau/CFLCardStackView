@@ -12,21 +12,34 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
+            <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQV-eq-6dM">
-                    <rect key="frame" x="139" y="190" width="42" height="21"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3H4-Hx-xPq">
+                    <rect key="frame" x="1" y="1" width="198" height="298"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQV-eq-6dM">
+                            <rect key="frame" x="78" y="139" width="42" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.94117647059999998" green="0.52549019610000003" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="centerY" secondItem="FQV-eq-6dM" secondAttribute="centerY" id="gyU-BA-Alx"/>
+                        <constraint firstAttribute="centerX" secondItem="FQV-eq-6dM" secondAttribute="centerX" id="tZx-SN-bdA"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="0.94117647059999998" green="0.52549019610000003" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.64705882349999999" green="0.64705882349999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="FQV-eq-6dM" secondAttribute="centerY" id="j7M-HL-sUQ"/>
-                <constraint firstAttribute="centerX" secondItem="FQV-eq-6dM" secondAttribute="centerX" id="o5r-Pu-VBo"/>
+                <constraint firstItem="3H4-Hx-xPq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="1" id="55Q-Ze-2K8"/>
+                <constraint firstAttribute="bottom" secondItem="3H4-Hx-xPq" secondAttribute="bottom" constant="1" id="9ia-x1-0sR"/>
+                <constraint firstAttribute="trailing" secondItem="3H4-Hx-xPq" secondAttribute="trailing" constant="1" id="Llt-G9-tT3"/>
+                <constraint firstItem="3H4-Hx-xPq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="1" id="wze-CA-5Uq"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
