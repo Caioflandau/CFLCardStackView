@@ -16,7 +16,7 @@
 
 -(UIView*)dequeueViewForCardAtIndex:(NSInteger)index;
 -(void)reloadData;
-
+-(void)rotateStack;
 @end
 
 

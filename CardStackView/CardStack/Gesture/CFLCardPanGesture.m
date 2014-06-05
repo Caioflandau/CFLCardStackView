@@ -10,6 +10,7 @@
 
 @interface CFLCardPanGesture () {
     CGPoint startingCardCenter;
+    BOOL mustRotateStack;
 }
 
 @end
@@ -48,12 +49,39 @@
 -(void)gestureChanged:(UIPanGestureRecognizer*)recognizer {
     CGPoint deltaCenter = [recognizer translationInView:self.cardStackView.superview];
     [self.cardStackView.topCardView setCenter:CGPointMake(startingCardCenter.x+deltaCenter.x/8, startingCardCenter.y+deltaCenter.y/8)];
+    if (abs(deltaCenter.x) > 150 || abs(deltaCenter.y) > 150) {
+        self.cardStackView.topCardView.alpha = 0.8;
+        mustRotateStack = YES;
+    }
+    else {
+        self.cardStackView.topCardView.alpha = 1;
+        mustRotateStack = NO;
+    }
 }
 
 -(void)gestureEnded:(UIPanGestureRecognizer*)recognizer {
-    [UIView animateWithDuration:0.3 animations:^(void) {
-        self.cardStackView.topCardView.center = startingCardCenter;
-    }];
+    if (!mustRotateStack) {
+        [UIView animateWithDuration:0.3 animations:^(void) {
+            self.cardStackView.topCardView.center = startingCardCenter;
+            self.cardStackView.topCardView.alpha = 1;
+        }];
+    }
+    else {
+        [UIView animateWithDuration:0.2 animations:^(void) {
+            CGPoint deltaCenter = [recognizer translationInView:self.cardStackView.superview];
+            [self.cardStackView.topCardView setCenter:CGPointMake(startingCardCenter.x+deltaCenter.x, startingCardCenter.y+deltaCenter.y)];
+            self.cardStackView.topCardView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.2 animations:^(void) {
+                [self.cardStackView sendSubviewToBack:self.cardStackView.topCardView];
+                self.cardStackView.topCardView.alpha = 0.3;
+                CGPoint backCardCenter = CGPointMake(startingCardCenter.x+30, startingCardCenter.y-30);
+                self.cardStackView.topCardView.center = backCardCenter;
+            } completion:^(BOOL finished) {
+                [self.cardStackView rotateStack];
+            }];
+        }];
+    }
 }
 
 @end

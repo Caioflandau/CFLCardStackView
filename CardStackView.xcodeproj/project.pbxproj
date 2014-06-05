@@ -25,6 +25,7 @@
 		25977F151940AC92009F41D2 /* CFLCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25977F131940AC92009F41D2 /* CFLCardViewController.m */; };
 		25977F161940AC92009F41D2 /* CFLCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25977F141940AC92009F41D2 /* CFLCardViewController.xib */; };
 		25977F1D1940BB96009F41D2 /* CFLCardPanGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 25977F1C1940BB96009F41D2 /* CFLCardPanGesture.m */; };
+		25977F1F1940F85C009F41D2 /* img_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 25977F1E1940F85C009F41D2 /* img_card.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		25977F141940AC92009F41D2 /* CFLCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CFLCardViewController.xib; sourceTree = "<group>"; };
 		25977F1B1940BB96009F41D2 /* CFLCardPanGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFLCardPanGesture.h; sourceTree = "<group>"; };
 		25977F1C1940BB96009F41D2 /* CFLCardPanGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFLCardPanGesture.m; sourceTree = "<group>"; };
+		25977F1E1940F85C009F41D2 /* img_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_card.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 		257AB094193FD72400FBE540 /* CardStackView */ = {
 			isa = PBXGroup;
 			children = (
+				25977F1E1940F85C009F41D2 /* img_card.png */,
 				257AB09D193FD72400FBE540 /* CFLAppDelegate.h */,
 				257AB09E193FD72400FBE540 /* CFLAppDelegate.m */,
 				257AB0A0193FD72400FBE540 /* Main.storyboard */,
@@ -267,6 +270,7 @@
 				257AB0A7193FD72400FBE540 /* Images.xcassets in Resources */,
 				257AB099193FD72400FBE540 /* InfoPlist.strings in Resources */,
 				257AB0A2193FD72400FBE540 /* Main.storyboard in Resources */,
+				25977F1F1940F85C009F41D2 /* img_card.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

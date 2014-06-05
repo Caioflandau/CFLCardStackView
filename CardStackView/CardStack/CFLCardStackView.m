@@ -58,11 +58,9 @@
         if (i >= 3)
             continue;
         
-        NSLog(@"i = %d", i);
-        
         UIView *view = [self.cardViews objectAtIndex:i];
         
-        CGPoint center = [self convertPoint:self.center fromView:view];
+        CGPoint center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
         
         switch (i) {
             case 2:
@@ -102,8 +100,19 @@
     return view;
 }
 
+/*
+ Rotates stack - moves first card to the last position
+ */
+-(void)rotateStack {
+    UIView *topCardView = self.topCardView;
+    NSMutableArray *cardViewsMutable = [self.cardViews mutableCopy];
+    [cardViewsMutable removeObjectAtIndex:0];
+    [cardViewsMutable addObject:topCardView];
+    self.cardViews = cardViewsMutable;
+    [self reloadData];
+}
+
 -(UIView *)topCardView {
     return [self.cardViews firstObject];
 }
-
 @end
