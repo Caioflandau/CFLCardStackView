@@ -65,20 +65,23 @@
         switch (i) {
             case 2:
                 view.alpha = 0.5;
-                center.x = center.x+10;
-                center.y = center.y-10;
+                center.x = center.x+3;
+                center.y = center.y-3;
+                view.transform = CGAffineTransformMakeRotation(-M_PI_4/10.0);
                 break;
                 
             case 1:
                 view.alpha = 0.75;
                 center.x = center.x;
                 center.y = center.y;
+                view.transform = CGAffineTransformMakeRotation(M_PI_4/10.0);
                 break;
                 
             case 0:
                 view.alpha = 1;
-                center.x = center.x - 10;
-                center.y = center.y + 10;
+                center.x = center.x - 3;
+                center.y = center.y + 3;
+                view.transform = CGAffineTransformMakeRotation(0);
                 break;
                 
             default:
@@ -100,9 +103,9 @@
     return view;
 }
 
-/*
+/**
  Rotates stack - moves first card to the last position
- */
+ **/
 -(void)rotateStack {
     UIView *topCardView = self.topCardView;
     NSMutableArray *cardViewsMutable = [self.cardViews mutableCopy];

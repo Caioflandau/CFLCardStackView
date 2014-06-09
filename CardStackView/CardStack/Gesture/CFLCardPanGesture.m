@@ -72,7 +72,7 @@
             [self.cardStackView.topCardView setCenter:CGPointMake(startingCardCenter.x+deltaCenter.x, startingCardCenter.y+deltaCenter.y)];
             self.cardStackView.topCardView.alpha = 0;
         } completion:^(BOOL finished) {
-            [UIView animateWithDuration:0.2 animations:^(void) {
+            [UIView animateWithDuration:0.3 animations:^(void) {
                 [self.cardStackView sendSubviewToBack:self.cardStackView.topCardView];
                 self.cardStackView.topCardView.alpha = 0.3;
                 CGPoint backCardCenter = CGPointMake(startingCardCenter.x+30, startingCardCenter.y-30);
