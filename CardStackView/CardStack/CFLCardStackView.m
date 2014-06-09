@@ -29,7 +29,6 @@
     return self;
 }
 
-
 -(void)awakeFromNib {
     [self reloadData];
     gestureRecognizer = [[CFLCardPanGesture alloc] init];
@@ -46,53 +45,60 @@
         [views addObject:nextCardView];
     }
     self.cardViews = views;
-    [self putCardViews];
+    [self putCardViewsAnimated:YES];
+}
+
+-(void)putCardViewsAnimated:(BOOL)animated {
+    //Remove all cards...
+    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [UIView animateWithDuration:(animated ? 0.4 : 0.0) animations:^(void) {
+        for (NSInteger i = self.cardViews.count-1; i >= 0; i--) {
+            
+            if (i >= 3)
+                continue;
+            
+            UIView *view = [self.cardViews objectAtIndex:i];
+            
+            CGPoint center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+            
+            switch (i) {
+                case 2:
+                    view.alpha = 0.5;
+                    center.x = center.x+3;
+                    center.y = center.y-3;
+                    view.transform = CGAffineTransformMakeRotation(-M_PI_4/10.0);
+                    break;
+                    
+                case 1:
+                    view.alpha = 0.75;
+                    center.x = center.x;
+                    center.y = center.y;
+                    view.transform = CGAffineTransformMakeRotation(M_PI_4/10.0);
+                    break;
+                    
+                case 0:
+                    view.alpha = 1;
+                    center.x = center.x - 3;
+                    center.y = center.y + 3;
+                    view.transform = CGAffineTransformMakeRotation(0);
+                    
+                    break;
+                    
+                default:
+                    view.alpha = 0;
+                    break;
+            }
+            
+            view.center = center;
+            
+            [self addSubview:view];
+        }
+    }];
+
 }
 
 -(void)putCardViews {
-    //Remove all cards...
-    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    
-    for (NSInteger i = self.cardViews.count-1; i >= 0; i--) {
-        
-        if (i >= 3)
-            continue;
-        
-        UIView *view = [self.cardViews objectAtIndex:i];
-        
-        CGPoint center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
-        
-        switch (i) {
-            case 2:
-                view.alpha = 0.5;
-                center.x = center.x+3;
-                center.y = center.y-3;
-                view.transform = CGAffineTransformMakeRotation(-M_PI_4/10.0);
-                break;
-                
-            case 1:
-                view.alpha = 0.75;
-                center.x = center.x;
-                center.y = center.y;
-                view.transform = CGAffineTransformMakeRotation(M_PI_4/10.0);
-                break;
-                
-            case 0:
-                view.alpha = 1;
-                center.x = center.x - 3;
-                center.y = center.y + 3;
-                view.transform = CGAffineTransformMakeRotation(0);
-                break;
-                
-            default:
-                view.alpha = 0;
-                break;
-        }
-        
-        view.center = center;
-        
-        [self addSubview:view];
-    }
+    [self putCardViewsAnimated:NO];
 }
 
 -(UIView *)dequeueViewForCardAtIndex:(NSInteger)index {
@@ -112,7 +118,7 @@
     [cardViewsMutable removeObjectAtIndex:0];
     [cardViewsMutable addObject:topCardView];
     self.cardViews = cardViewsMutable;
-    [self reloadData];
+    [self putCardViews];
 }
 
 -(UIView *)topCardView {
