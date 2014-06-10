@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>47DB1313-5157-4494-B925-17C25D6B47A2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CardStackView</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EA0B2C2B-BB45-4FA4-AE62-D30462CAA824</key>
+		<string>https://github.com/Caioflandau/CFLCardStackView.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CardStackView.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EA0B2C2B-BB45-4FA4-AE62-D30462CAA824</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Caioflandau/CFLCardStackView.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EA0B2C2B-BB45-4FA4-AE62-D30462CAA824</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EA0B2C2B-BB45-4FA4-AE62-D30462CAA824</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CardStackView</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -100,7 +100,7 @@
 }
 
 -(void)putCardViews {
-    [self putCardViewsAnimated:YES];
+    [self putCardViewsAnimated:NO];
 }
 
 -(UIView *)dequeueViewForCardAtIndex:(NSInteger)index {

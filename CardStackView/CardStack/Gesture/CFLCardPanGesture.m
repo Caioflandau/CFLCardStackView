@@ -50,11 +50,15 @@
     CGPoint deltaCenter = [recognizer translationInView:self.cardStackView.superview];
     [self.cardStackView.topCardView setCenter:CGPointMake(startingCardCenter.x+deltaCenter.x/8, startingCardCenter.y+deltaCenter.y/8)];
     if (abs(deltaCenter.x) > 150 || abs(deltaCenter.y) > 150) {
-        self.cardStackView.topCardView.alpha = 0.8;
+        [UIView animateWithDuration:0.2 animations:^(void) {
+            self.cardStackView.topCardView.alpha = 0.8;
+        }];
         mustRotateStack = YES;
     }
     else {
-        self.cardStackView.topCardView.alpha = 1;
+        [UIView animateWithDuration:0.2 animations:^(void) {
+            self.cardStackView.topCardView.alpha = 1;
+        }];
         mustRotateStack = NO;
     }
 }
