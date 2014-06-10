@@ -64,19 +64,16 @@
             
             switch (i) {
                 case 2:
-                    view.alpha = 0.5;
                     center.x = center.x+3;
                     center.y = center.y-3;
                     break;
                     
                 case 1:
-                    view.alpha = 0.75;
                     center.x = center.x;
                     center.y = center.y;
                     break;
                     
                 case 0:
-                    view.alpha = 1;
                     center.x = center.x - 3;
                     center.y = center.y + 3;
                     transform = CGAffineTransformMakeRotation(0);
@@ -84,7 +81,6 @@
                     break;
                     
                 default:
-                    view.alpha = 0;
                     break;
             }
             

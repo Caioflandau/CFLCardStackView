@@ -26,7 +26,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    UIColor *color;
+    
+    int a = arc4random()%5;
+    switch (a) {
+        case 0:
+            color = [UIColor redColor];
+            break;
+            
+        case 1:
+            color = [UIColor greenColor];
+            break;
+            
+        case 2:
+            color = [UIColor blueColor];
+            break;
+            
+        case 3:
+            color = [UIColor whiteColor];
+            break;
+            
+        default:
+            color = [UIColor whiteColor];
+            break;
+    }
+    self.view.backgroundColor = color;
 }
 
 - (void)didReceiveMemoryWarning

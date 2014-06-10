@@ -17,12 +17,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bjA-wG-qSx" customClass="CFLCardStackView">
-                                <rect key="frame" x="20" y="84" width="280" height="400"/>
+                                <rect key="frame" x="50" y="127" width="220" height="315"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="YBO-Fq-UTn"/>
-                                    <constraint firstAttribute="height" constant="400" id="bbd-rR-xe0"/>
+                                    <constraint firstAttribute="height" constant="315" id="pJP-XO-bbb"/>
+                                    <constraint firstAttribute="width" constant="220" id="wLu-Te-tNu"/>
                                 </constraints>
                             </view>
                         </subviews>

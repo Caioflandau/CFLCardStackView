@@ -9,5 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface CFLCardViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UILabel *lblText;
 @end

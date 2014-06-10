@@ -74,16 +74,15 @@
         [UIView animateWithDuration:0.2 animations:^(void) {
             CGPoint deltaCenter = [recognizer translationInView:self.cardStackView.superview];
             [self.cardStackView.topCardView setCenter:CGPointMake(startingCardCenter.x+deltaCenter.x, startingCardCenter.y+deltaCenter.y)];
-            self.cardStackView.topCardView.alpha = 0;
-            self.cardStackView.topCardView.transform = CGAffineTransformMakeScale(0.6, 0.6);
+            self.cardStackView.topCardView.transform = CGAffineTransformMakeScale(0.5, 0.5);
         } completion:^(BOOL finished) {
             [self.cardStackView sendSubviewToBack:self.cardStackView.topCardView];
             [UIView animateWithDuration:0.3 animations:^(void) {
-                self.cardStackView.topCardView.alpha = 0.3;
                 CGPoint backCardCenter = CGPointMake(startingCardCenter.x+30, startingCardCenter.y-30);
-                self.cardStackView.topCardView.transform = CGAffineTransformMakeScale(1, 1);
                 self.cardStackView.topCardView.center = backCardCenter;
             } completion:^(BOOL finished) {
+                self.cardStackView.topCardView.alpha = 1;
+                self.cardStackView.topCardView.transform = CGAffineTransformMakeScale(1, 1);
                 [self.cardStackView rotateStack];
             }];
         }];
