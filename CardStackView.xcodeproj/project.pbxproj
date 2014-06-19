@@ -15,17 +15,13 @@
 		257AB09F193FD72400FBE540 /* CFLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 257AB09E193FD72400FBE540 /* CFLAppDelegate.m */; };
 		257AB0A2193FD72400FBE540 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 257AB0A0193FD72400FBE540 /* Main.storyboard */; };
 		257AB0A5193FD72400FBE540 /* CFLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 257AB0A4193FD72400FBE540 /* CFLViewController.m */; };
-		257AB0A7193FD72400FBE540 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 257AB0A6193FD72400FBE540 /* Images.xcassets */; };
 		257AB0AE193FD72400FBE540 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257AB0AD193FD72400FBE540 /* XCTest.framework */; };
 		257AB0AF193FD72400FBE540 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257AB08E193FD72400FBE540 /* Foundation.framework */; };
 		257AB0B0193FD72400FBE540 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257AB092193FD72400FBE540 /* UIKit.framework */; };
-		257AB0B8193FD72400FBE540 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 257AB0B6193FD72400FBE540 /* InfoPlist.strings */; };
-		257AB0BA193FD72400FBE540 /* CardStackViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 257AB0B9193FD72400FBE540 /* CardStackViewTests.m */; };
 		257AB0C6193FD86600FBE540 /* CFLCardStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 257AB0C5193FD86600FBE540 /* CFLCardStackView.m */; };
 		25977F151940AC92009F41D2 /* CFLCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25977F131940AC92009F41D2 /* CFLCardViewController.m */; };
 		25977F161940AC92009F41D2 /* CFLCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25977F141940AC92009F41D2 /* CFLCardViewController.xib */; };
 		25977F1D1940BB96009F41D2 /* CFLCardPanGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 25977F1C1940BB96009F41D2 /* CFLCardPanGesture.m */; };
-		25977F1F1940F85C009F41D2 /* img_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 25977F1E1940F85C009F41D2 /* img_card.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,12 +48,8 @@
 		257AB0A1193FD72400FBE540 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		257AB0A3193FD72400FBE540 /* CFLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFLViewController.h; sourceTree = "<group>"; };
 		257AB0A4193FD72400FBE540 /* CFLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CFLViewController.m; sourceTree = "<group>"; };
-		257AB0A6193FD72400FBE540 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		257AB0AC193FD72400FBE540 /* CardStackViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardStackViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		257AB0AD193FD72400FBE540 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		257AB0B5193FD72400FBE540 /* CardStackViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CardStackViewTests-Info.plist"; sourceTree = "<group>"; };
-		257AB0B7193FD72400FBE540 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		257AB0B9193FD72400FBE540 /* CardStackViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardStackViewTests.m; sourceTree = "<group>"; };
 		257AB0C4193FD86600FBE540 /* CFLCardStackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFLCardStackView.h; sourceTree = "<group>"; };
 		257AB0C5193FD86600FBE540 /* CFLCardStackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFLCardStackView.m; sourceTree = "<group>"; };
 		25977F121940AC92009F41D2 /* CFLCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFLCardViewController.h; sourceTree = "<group>"; };
@@ -65,7 +57,6 @@
 		25977F141940AC92009F41D2 /* CFLCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CFLCardViewController.xib; sourceTree = "<group>"; };
 		25977F1B1940BB96009F41D2 /* CFLCardPanGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFLCardPanGesture.h; sourceTree = "<group>"; };
 		25977F1C1940BB96009F41D2 /* CFLCardPanGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFLCardPanGesture.m; sourceTree = "<group>"; };
-		25977F1E1940F85C009F41D2 /* img_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_card.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +86,8 @@
 		257AB082193FD72400FBE540 = {
 			isa = PBXGroup;
 			children = (
-				257AB094193FD72400FBE540 /* CardStackView */,
-				257AB0B3193FD72400FBE540 /* CardStackViewTests */,
+				587962BE1953A25A0097EE93 /* Component */,
+				257AB094193FD72400FBE540 /* Example */,
 				257AB08D193FD72400FBE540 /* Frameworks */,
 				257AB08C193FD72400FBE540 /* Products */,
 			);
@@ -122,23 +113,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		257AB094193FD72400FBE540 /* CardStackView */ = {
+		257AB094193FD72400FBE540 /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				25977F1E1940F85C009F41D2 /* img_card.png */,
+				257AB095193FD72400FBE540 /* Supporting Files */,
+				257AB0A0193FD72400FBE540 /* Main.storyboard */,
 				257AB09D193FD72400FBE540 /* CFLAppDelegate.h */,
 				257AB09E193FD72400FBE540 /* CFLAppDelegate.m */,
-				257AB0A0193FD72400FBE540 /* Main.storyboard */,
 				257AB0A3193FD72400FBE540 /* CFLViewController.h */,
 				257AB0A4193FD72400FBE540 /* CFLViewController.m */,
-				257AB0A6193FD72400FBE540 /* Images.xcassets */,
-				257AB0C3193FD73B00FBE540 /* CardStack */,
-				257AB095193FD72400FBE540 /* Supporting Files */,
 				25977F121940AC92009F41D2 /* CFLCardViewController.h */,
 				25977F131940AC92009F41D2 /* CFLCardViewController.m */,
 				25977F141940AC92009F41D2 /* CFLCardViewController.xib */,
 			);
-			path = CardStackView;
+			path = Example;
 			sourceTree = "<group>";
 		};
 		257AB095193FD72400FBE540 /* Supporting Files */ = {
@@ -152,32 +140,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		257AB0B3193FD72400FBE540 /* CardStackViewTests */ = {
-			isa = PBXGroup;
-			children = (
-				257AB0B9193FD72400FBE540 /* CardStackViewTests.m */,
-				257AB0B4193FD72400FBE540 /* Supporting Files */,
-			);
-			path = CardStackViewTests;
-			sourceTree = "<group>";
-		};
-		257AB0B4193FD72400FBE540 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				257AB0B5193FD72400FBE540 /* CardStackViewTests-Info.plist */,
-				257AB0B6193FD72400FBE540 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		257AB0C3193FD73B00FBE540 /* CardStack */ = {
+		257AB0C3193FD73B00FBE540 /* CFLCardStackView */ = {
 			isa = PBXGroup;
 			children = (
 				25977F171940B78B009F41D2 /* Gesture */,
 				257AB0C4193FD86600FBE540 /* CFLCardStackView.h */,
 				257AB0C5193FD86600FBE540 /* CFLCardStackView.m */,
 			);
-			path = CardStack;
+			path = CFLCardStackView;
 			sourceTree = "<group>";
 		};
 		25977F171940B78B009F41D2 /* Gesture */ = {
@@ -187,6 +157,14 @@
 				25977F1C1940BB96009F41D2 /* CFLCardPanGesture.m */,
 			);
 			path = Gesture;
+			sourceTree = "<group>";
+		};
+		587962BE1953A25A0097EE93 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				257AB0C3193FD73B00FBE540 /* CFLCardStackView */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,10 +245,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				25977F161940AC92009F41D2 /* CFLCardViewController.xib in Resources */,
-				257AB0A7193FD72400FBE540 /* Images.xcassets in Resources */,
 				257AB099193FD72400FBE540 /* InfoPlist.strings in Resources */,
 				257AB0A2193FD72400FBE540 /* Main.storyboard in Resources */,
-				25977F1F1940F85C009F41D2 /* img_card.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +254,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				257AB0B8193FD72400FBE540 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +277,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				257AB0BA193FD72400FBE540 /* CardStackViewTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,14 +305,6 @@
 				257AB0A1193FD72400FBE540 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		257AB0B6193FD72400FBE540 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				257AB0B7193FD72400FBE540 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -420,8 +386,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CardStackView/CardStackView-Prefix.pch";
-				INFOPLIST_FILE = "CardStackView/CardStackView-Info.plist";
+				GCC_PREFIX_HEADER = "Example/CardStackView-Prefix.pch";
+				INFOPLIST_FILE = "Example/CardStackView-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -433,8 +399,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CardStackView/CardStackView-Prefix.pch";
-				INFOPLIST_FILE = "CardStackView/CardStackView-Info.plist";
+				GCC_PREFIX_HEADER = "Example/CardStackView-Prefix.pch";
+				INFOPLIST_FILE = "Example/CardStackView-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
