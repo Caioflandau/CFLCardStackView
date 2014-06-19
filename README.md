@@ -1,3 +1,5 @@
+(Still in early development! Not nearly ready for production use yet)
+
 CFLCardStackView
 ================
 Simple Card Stack View for iOS
