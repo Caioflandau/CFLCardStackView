@@ -46,18 +46,15 @@
     startingCardCenter = self.cardStackView.topCardView.center;
 }
 
--(void)gestureChanged:(UIPanGestureRecognizer*)recognizer {
-    
-//    self.cardStackView.topCardView.layer.transform
-    
+-(void)gestureChanged:(UIPanGestureRecognizer*)recognizer {    
     CGPoint deltaCenter = [recognizer translationInView:self.cardStackView.superview];
     
     CGFloat rotationDelta = deltaCenter.x > 150 ? 150 : deltaCenter.x;
     
     int multiplier = [self rotationMultiplierForTouchAtPoint:[recognizer locationOfTouch:0 inView:self.cardStackView.topCardView]];
-    self.cardStackView.topCardView.layer.transform = CATransform3DMakeRotation(multiplier * ((M_PI_4*0.5) * rotationDelta/150.0), 0.0, 0.0, 1.0);
+    self.cardStackView.topCardView.layer.transform = CATransform3DMakeRotation(multiplier * ((M_PI_4/2.0) * rotationDelta/150.0), 0.0, 0.0, 1.0);
     
-    [self.cardStackView.topCardView setCenter:CGPointMake(startingCardCenter.x+deltaCenter.x/2, startingCardCenter.y+deltaCenter.y/2)];
+    [self.cardStackView.topCardView setCenter:CGPointMake(startingCardCenter.x+deltaCenter.x/1.5, startingCardCenter.y+deltaCenter.y/1.5)];
     if (abs(deltaCenter.x) > 150 || abs(deltaCenter.y) > 150) {
         [UIView animateWithDuration:0.2 animations:^(void) {
             self.cardStackView.topCardView.alpha = 0.8;
