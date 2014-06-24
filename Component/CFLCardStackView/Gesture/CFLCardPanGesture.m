@@ -47,8 +47,17 @@
 }
 
 -(void)gestureChanged:(UIPanGestureRecognizer*)recognizer {
+    
+//    self.cardStackView.topCardView.layer.transform
+    
     CGPoint deltaCenter = [recognizer translationInView:self.cardStackView.superview];
-    [self.cardStackView.topCardView setCenter:CGPointMake(startingCardCenter.x+deltaCenter.x/8, startingCardCenter.y+deltaCenter.y/8)];
+    
+    CGFloat rotationDelta = deltaCenter.x > 150 ? 150 : deltaCenter.x;
+    
+    int multiplier = [self rotationMultiplierForTouchAtPoint:[recognizer locationOfTouch:0 inView:self.cardStackView.topCardView]];
+    self.cardStackView.topCardView.layer.transform = CATransform3DMakeRotation(multiplier * ((M_PI_4*0.5) * rotationDelta/150.0), 0.0, 0.0, 1.0);
+    
+    [self.cardStackView.topCardView setCenter:CGPointMake(startingCardCenter.x+deltaCenter.x/2, startingCardCenter.y+deltaCenter.y/2)];
     if (abs(deltaCenter.x) > 150 || abs(deltaCenter.y) > 150) {
         [UIView animateWithDuration:0.2 animations:^(void) {
             self.cardStackView.topCardView.alpha = 0.8;
@@ -68,6 +77,7 @@
         [UIView animateWithDuration:0.3 animations:^(void) {
             self.cardStackView.topCardView.center = startingCardCenter;
             self.cardStackView.topCardView.alpha = 1;
+            self.cardStackView.topCardView.layer.transform = CATransform3DMakeRotation(0, 0.0, 0.0, 0.0);
         }];
     }
     else {
@@ -86,6 +96,15 @@
                 [self.cardStackView rotateStack];
             }];
         }];
+    }
+}
+
+-(int)rotationMultiplierForTouchAtPoint:(CGPoint)touchPoint {
+    if (touchPoint.y > self.cardStackView.topCardView.frame.size.height / 2.0) {
+        return -1;
+    }
+    else {
+        return 1;
     }
 }
 
