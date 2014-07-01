@@ -1,0 +1,468 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2588C8D719634DDD0022309C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2588C8D619634DDD0022309C /* Foundation.framework */; };
+		2588C8D919634DDD0022309C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2588C8D819634DDD0022309C /* CoreGraphics.framework */; };
+		2588C8DB19634DDD0022309C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2588C8DA19634DDD0022309C /* UIKit.framework */; };
+		2588C8E119634DDD0022309C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2588C8DF19634DDD0022309C /* InfoPlist.strings */; };
+		2588C8E319634DDD0022309C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2588C8E219634DDD0022309C /* main.m */; };
+		2588C8E719634DDD0022309C /* CFLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2588C8E619634DDD0022309C /* CFLAppDelegate.m */; };
+		2588C8EA19634DDD0022309C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2588C8E819634DDD0022309C /* Main.storyboard */; };
+		2588C8ED19634DDD0022309C /* CFLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2588C8EC19634DDD0022309C /* CFLViewController.m */; };
+		2588C8EF19634DDD0022309C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2588C8EE19634DDD0022309C /* Images.xcassets */; };
+		2588C8F619634DDD0022309C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2588C8F519634DDD0022309C /* XCTest.framework */; };
+		2588C8F719634DDD0022309C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2588C8D619634DDD0022309C /* Foundation.framework */; };
+		2588C8F819634DDD0022309C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2588C8DA19634DDD0022309C /* UIKit.framework */; };
+		2588C91019634E700022309C /* CFLCardStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2588C90D19634E700022309C /* CFLCardStackView.m */; };
+		2588C91119634E700022309C /* CFLCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2588C90F19634E700022309C /* CFLCardView.m */; };
+		2588C91819634F860022309C /* CFLExampleCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2588C91619634F860022309C /* CFLExampleCardViewController.m */; };
+		2588C91919634F860022309C /* CFLExampleCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2588C91719634F860022309C /* CFLExampleCardViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2588C8F919634DDD0022309C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2588C8CB19634DDD0022309C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2588C8D219634DDD0022309C;
+			remoteInfo = CFLCardStackView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2588C8D319634DDD0022309C /* CFLCardStackView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CFLCardStackView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2588C8D619634DDD0022309C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2588C8D819634DDD0022309C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2588C8DA19634DDD0022309C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2588C8DE19634DDD0022309C /* CFLCardStackView-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CFLCardStackView-Info.plist"; sourceTree = "<group>"; };
+		2588C8E019634DDD0022309C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2588C8E219634DDD0022309C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2588C8E419634DDD0022309C /* CFLCardStackView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CFLCardStackView-Prefix.pch"; sourceTree = "<group>"; };
+		2588C8E519634DDD0022309C /* CFLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFLAppDelegate.h; sourceTree = "<group>"; };
+		2588C8E619634DDD0022309C /* CFLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CFLAppDelegate.m; sourceTree = "<group>"; };
+		2588C8E919634DDD0022309C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2588C8EB19634DDD0022309C /* CFLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFLViewController.h; sourceTree = "<group>"; };
+		2588C8EC19634DDD0022309C /* CFLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CFLViewController.m; sourceTree = "<group>"; };
+		2588C8EE19634DDD0022309C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2588C8F419634DDD0022309C /* CFLCardStackViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CFLCardStackViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2588C8F519634DDD0022309C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		2588C90C19634E700022309C /* CFLCardStackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFLCardStackView.h; sourceTree = "<group>"; };
+		2588C90D19634E700022309C /* CFLCardStackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFLCardStackView.m; sourceTree = "<group>"; };
+		2588C90E19634E700022309C /* CFLCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFLCardView.h; sourceTree = "<group>"; };
+		2588C90F19634E700022309C /* CFLCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFLCardView.m; sourceTree = "<group>"; };
+		2588C91519634F860022309C /* CFLExampleCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFLExampleCardViewController.h; sourceTree = "<group>"; };
+		2588C91619634F860022309C /* CFLExampleCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFLExampleCardViewController.m; sourceTree = "<group>"; };
+		2588C91719634F860022309C /* CFLExampleCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CFLExampleCardViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2588C8D019634DDD0022309C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2588C8D919634DDD0022309C /* CoreGraphics.framework in Frameworks */,
+				2588C8DB19634DDD0022309C /* UIKit.framework in Frameworks */,
+				2588C8D719634DDD0022309C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2588C8F119634DDD0022309C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2588C8F619634DDD0022309C /* XCTest.framework in Frameworks */,
+				2588C8F819634DDD0022309C /* UIKit.framework in Frameworks */,
+				2588C8F719634DDD0022309C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2588C8CA19634DDD0022309C = {
+			isa = PBXGroup;
+			children = (
+				2588C90B19634E700022309C /* Component */,
+				2588C8DC19634DDD0022309C /* Example */,
+				2588C8D519634DDD0022309C /* Frameworks */,
+				2588C8D419634DDD0022309C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2588C8D419634DDD0022309C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2588C8D319634DDD0022309C /* CFLCardStackView.app */,
+				2588C8F419634DDD0022309C /* CFLCardStackViewTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2588C8D519634DDD0022309C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2588C8D619634DDD0022309C /* Foundation.framework */,
+				2588C8D819634DDD0022309C /* CoreGraphics.framework */,
+				2588C8DA19634DDD0022309C /* UIKit.framework */,
+				2588C8F519634DDD0022309C /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2588C8DC19634DDD0022309C /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				2588C8E519634DDD0022309C /* CFLAppDelegate.h */,
+				2588C8E619634DDD0022309C /* CFLAppDelegate.m */,
+				2588C8E819634DDD0022309C /* Main.storyboard */,
+				2588C8EB19634DDD0022309C /* CFLViewController.h */,
+				2588C8EC19634DDD0022309C /* CFLViewController.m */,
+				2588C91519634F860022309C /* CFLExampleCardViewController.h */,
+				2588C91619634F860022309C /* CFLExampleCardViewController.m */,
+				2588C91719634F860022309C /* CFLExampleCardViewController.xib */,
+				2588C8EE19634DDD0022309C /* Images.xcassets */,
+				2588C8DD19634DDD0022309C /* Supporting Files */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		2588C8DD19634DDD0022309C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2588C8DE19634DDD0022309C /* CFLCardStackView-Info.plist */,
+				2588C8DF19634DDD0022309C /* InfoPlist.strings */,
+				2588C8E219634DDD0022309C /* main.m */,
+				2588C8E419634DDD0022309C /* CFLCardStackView-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2588C90B19634E700022309C /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				2588C90C19634E700022309C /* CFLCardStackView.h */,
+				2588C90D19634E700022309C /* CFLCardStackView.m */,
+				2588C90E19634E700022309C /* CFLCardView.h */,
+				2588C90F19634E700022309C /* CFLCardView.m */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2588C8D219634DDD0022309C /* CFLCardStackView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2588C90519634DDD0022309C /* Build configuration list for PBXNativeTarget "CFLCardStackView" */;
+			buildPhases = (
+				2588C8CF19634DDD0022309C /* Sources */,
+				2588C8D019634DDD0022309C /* Frameworks */,
+				2588C8D119634DDD0022309C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CFLCardStackView;
+			productName = CFLCardStackView;
+			productReference = 2588C8D319634DDD0022309C /* CFLCardStackView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2588C8F319634DDD0022309C /* CFLCardStackViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2588C90819634DDD0022309C /* Build configuration list for PBXNativeTarget "CFLCardStackViewTests" */;
+			buildPhases = (
+				2588C8F019634DDD0022309C /* Sources */,
+				2588C8F119634DDD0022309C /* Frameworks */,
+				2588C8F219634DDD0022309C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2588C8FA19634DDD0022309C /* PBXTargetDependency */,
+			);
+			name = CFLCardStackViewTests;
+			productName = CFLCardStackViewTests;
+			productReference = 2588C8F419634DDD0022309C /* CFLCardStackViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2588C8CB19634DDD0022309C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CFL;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Caio Fukelmann Landau";
+				TargetAttributes = {
+					2588C8F319634DDD0022309C = {
+						TestTargetID = 2588C8D219634DDD0022309C;
+					};
+				};
+			};
+			buildConfigurationList = 2588C8CE19634DDD0022309C /* Build configuration list for PBXProject "CFLCardStackView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2588C8CA19634DDD0022309C;
+			productRefGroup = 2588C8D419634DDD0022309C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2588C8D219634DDD0022309C /* CFLCardStackView */,
+				2588C8F319634DDD0022309C /* CFLCardStackViewTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2588C8D119634DDD0022309C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2588C8EF19634DDD0022309C /* Images.xcassets in Resources */,
+				2588C8E119634DDD0022309C /* InfoPlist.strings in Resources */,
+				2588C91919634F860022309C /* CFLExampleCardViewController.xib in Resources */,
+				2588C8EA19634DDD0022309C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2588C8F219634DDD0022309C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2588C8CF19634DDD0022309C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2588C91119634E700022309C /* CFLCardView.m in Sources */,
+				2588C8E719634DDD0022309C /* CFLAppDelegate.m in Sources */,
+				2588C91019634E700022309C /* CFLCardStackView.m in Sources */,
+				2588C8E319634DDD0022309C /* main.m in Sources */,
+				2588C8ED19634DDD0022309C /* CFLViewController.m in Sources */,
+				2588C91819634F860022309C /* CFLExampleCardViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2588C8F019634DDD0022309C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2588C8FA19634DDD0022309C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2588C8D219634DDD0022309C /* CFLCardStackView */;
+			targetProxy = 2588C8F919634DDD0022309C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2588C8DF19634DDD0022309C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2588C8E019634DDD0022309C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2588C8E819634DDD0022309C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2588C8E919634DDD0022309C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2588C90319634DDD0022309C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2588C90419634DDD0022309C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2588C90619634DDD0022309C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Example/CFLCardStackView-Prefix.pch";
+				INFOPLIST_FILE = "Example/CFLCardStackView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2588C90719634DDD0022309C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Example/CFLCardStackView-Prefix.pch";
+				INFOPLIST_FILE = "Example/CFLCardStackView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		2588C90919634DDD0022309C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CFLCardStackView.app/CFLCardStackView";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CFLCardStackView/CFLCardStackView-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CFLCardStackViewTests/CFLCardStackViewTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		2588C90A19634DDD0022309C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CFLCardStackView.app/CFLCardStackView";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CFLCardStackView/CFLCardStackView-Prefix.pch";
+				INFOPLIST_FILE = "CFLCardStackViewTests/CFLCardStackViewTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2588C8CE19634DDD0022309C /* Build configuration list for PBXProject "CFLCardStackView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2588C90319634DDD0022309C /* Debug */,
+				2588C90419634DDD0022309C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2588C90519634DDD0022309C /* Build configuration list for PBXNativeTarget "CFLCardStackView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2588C90619634DDD0022309C /* Debug */,
+				2588C90719634DDD0022309C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2588C90819634DDD0022309C /* Build configuration list for PBXNativeTarget "CFLCardStackViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2588C90919634DDD0022309C /* Debug */,
+				2588C90A19634DDD0022309C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2588C8CB19634DDD0022309C /* Project object */;
+}
