@@ -107,6 +107,32 @@
     return view;
 }
 
+-(UIView *)cardViewBehind:(UIView *)cardView {
+    int index = [self.cardViews indexOfObject:cardView];
+    UIView *behindCardView = nil;
+    if (index != NSNotFound) {
+        if (self.cardViews.count > 1) {
+            if (index == self.cardViews.count - 1) {
+                behindCardView = [self.cardViews objectAtIndex:0];
+            }
+            else {
+                behindCardView = [self.cardViews objectAtIndex:index+1];
+            }
+        }
+    }
+    return behindCardView;
+}
+
+-(void)adjustPositionOfCardViewBehindForDelta:(float)delta WithInitialTransform:(CGAffineTransform)initialTransform {
+    NSLog(@"delta: %f", delta);
+    UIView *cardViewBehind = [self cardViewBehind:self.topCardView];
+    
+    CGFloat newRotation = delta * atan2f(initialTransform.a, initialTransform.b);
+    
+    CGAffineTransform newTransform = CGAffineTransformMakeRotation(newRotation);
+    cardViewBehind.transform = newTransform;
+}
+
 /**
  Rotates stack - moves first card to the last position
  **/

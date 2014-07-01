@@ -10,6 +10,7 @@
 
 @interface CFLCardPanGesture () {
     CGPoint startingCardCenter;
+    CGAffineTransform startingBehindViewTransform;
     BOOL mustRotateStack;
 }
 
@@ -44,6 +45,7 @@
 
 -(void)gestureBegan:(UIPanGestureRecognizer*)recognizer {
     startingCardCenter = self.cardStackView.topCardView.center;
+    startingBehindViewTransform = [self.cardStackView cardViewBehind:self.cardStackView.topCardView].transform;
 }
 
 -(void)gestureChanged:(UIPanGestureRecognizer*)recognizer {    
@@ -51,7 +53,7 @@
     
     CGFloat rotationDelta = deltaCenter.x > 150 ? 150 : deltaCenter.x;
     
-    int multiplier = [self rotationMultiplierForTouchAtPoint:[recognizer locationOfTouch:0 inView:self.cardStackView.topCardView]];
+    float multiplier = [self rotationMultiplierForTouchAtPoint:[recognizer locationOfTouch:0 inView:self.cardStackView.topCardView]];
     self.cardStackView.topCardView.layer.transform = CATransform3DMakeRotation(multiplier * ((M_PI_4/2.0) * rotationDelta/150.0), 0.0, 0.0, 1.0);
     
     [self.cardStackView.topCardView setCenter:CGPointMake(startingCardCenter.x+deltaCenter.x/1.5, startingCardCenter.y+deltaCenter.y/1.5)];
@@ -96,13 +98,14 @@
     }
 }
 
--(int)rotationMultiplierForTouchAtPoint:(CGPoint)touchPoint {
-    if (touchPoint.y > self.cardStackView.topCardView.frame.size.height / 2.0) {
-        return -1;
-    }
-    else {
-        return 1;
-    }
+-(float)rotationMultiplierForTouchAtPoint:(CGPoint)touchPoint {
+    int height = CGRectGetHeight(self.cardStackView.topCardView.frame);
+    
+    float angleY = ((((float)touchPoint.y / (float)height) * 100) / 180.0 * M_PI);
+    
+    float multiplier = 1 + (-1 * (sin(angleY) * 1.8));
+    
+    return multiplier;
 }
 
 @end

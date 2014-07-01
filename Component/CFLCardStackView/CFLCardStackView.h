@@ -14,9 +14,18 @@
 
 @property (readonly) UIView *topCardView;
 
+/**
+ @return the topmost card view behind topCardView or nil if there are no cards behind
+ */
+-(UIView*)cardViewBehind:(UIView*)topCardView;
+
 -(UIView*)dequeueViewForCardAtIndex:(NSInteger)index;
 -(void)reloadData;
 -(void)rotateStack;
+
+
+-(void)adjustPositionOfCardViewBehindForDelta:(float)delta WithInitialTransform:(CGAffineTransform)initialTransform;
+
 @end
 
 
