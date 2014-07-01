@@ -46,7 +46,7 @@
     if (viewControllers.count <= cardIndex) {
         CFLExampleCardViewController *vc = [[CFLExampleCardViewController alloc] init];
         [viewControllers addObject:vc];
-        vc.view.frame = CGRectMake(25, 80, self.view.frame.size.width-50, self.view.frame.size.height-160);
+        vc.view.frame = CGRectMake(50, 160, self.view.frame.size.width-100, self.view.frame.size.height-320);
         cardVc = vc;
     }
     else {
