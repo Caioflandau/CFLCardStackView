@@ -17,6 +17,8 @@
 @property (weak) id<CFLCardStackViewDataSource> dataSource;
 @property (weak) id<CFLCardStackViewDelegate> delegate;
 
+@property (weak, readonly) CFLCardView *topCardView;
+
 /**
  Number of cards to peek behind the top card. Default is 2;
  */

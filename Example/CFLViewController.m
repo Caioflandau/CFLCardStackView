@@ -26,6 +26,7 @@
     cardStackView.delegate = self;
     cardStackView.dataSource = self;
     [self.view addSubview:cardStackView];
+    cardStackView.numberOfCardsBehind = 3;
     viewControllers = [[NSMutableArray alloc] init];
     [cardStackView reloadData];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -46,13 +47,14 @@
     if (viewControllers.count <= cardIndex) {
         CFLExampleCardViewController *vc = [[CFLExampleCardViewController alloc] init];
         [viewControllers addObject:vc];
-        vc.view.frame = CGRectMake(50, 160, self.view.frame.size.width-100, self.view.frame.size.height-320);
+        vc.view.frame = CGRectMake(25, 80, self.view.frame.size.width-50, self.view.frame.size.height-160);
+        vc.view.backgroundColor = [self randomColor];
         cardVc = vc;
     }
     else {
         cardVc = [viewControllers objectAtIndex:cardIndex];
     }
-    cardVc.lblNumber.text = [NSString stringWithFormat:@"%d", cardIndex];
+    cardVc.lblNumber.text = [NSString stringWithFormat:@"%d", (int)cardIndex];
     return (CFLCardView*)cardVc.view;
 }
 
@@ -65,6 +67,16 @@
 
 -(void)cardStackView:(CFLCardStackView *)cardStackView didSelectTopCard:(CFLCardView *)topCardView {
     
+}
+
+
+#pragma mark - Utility
+-(UIColor*)randomColor {
+    int r = arc4random()%256;
+    int g = arc4random()%256;
+    int b = arc4random()%256;
+    
+    return [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1];
 }
 
 @end

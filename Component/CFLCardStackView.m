@@ -7,19 +7,29 @@
 //
 
 #import "CFLCardStackView.h"
+#import "CFLCardStackViewPanGestureRecognizer.h"
+#import "CFLCardStackNode.m"
 
-@interface CFLCardStackView ()
+#define TRANSLATION_OFFSET -30
+
+@interface CFLCardStackView () <CFLCardStackViewPanGestureRecognizerDelegate>
+
+@property CFLCardStackNode *currentTopNode;
 
 @property NSUInteger numberOfCards;
-
 @end
 
 @implementation CFLCardStackView
+
+@synthesize topCardView = _topCardView;
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
+        CFLCardStackViewPanGestureRecognizer *gestureRecognizer = [[CFLCardStackViewPanGestureRecognizer alloc] init];
+        gestureRecognizer.cardStackPanGestureDelegate = self;
+        [self addGestureRecognizer:gestureRecognizer];
         self.numberOfCardsBehind = 2;
         [self reloadData];
     }
@@ -33,29 +43,42 @@
     else {
         self.numberOfCards = 0;
     }
-    [self construct];
+    [self constructLinkedList];
+    [self putViews];
 }
 
--(void)construct {
-    if (self.numberOfCards <= 0)
-        return;
+-(void)constructLinkedList {
+    self.currentTopNode = [[CFLCardStackNode alloc] initWithCardIndex:0];
     
-    NSInteger lastPeekCardIndex = self.numberOfCards - self.numberOfCardsBehind - 1;
-    if (lastPeekCardIndex < 0) {
-        lastPeekCardIndex = 0;
-        self.numberOfCardsBehind = self.numberOfCards-1;
-        lastPeekCardIndex = self.numberOfCards - self.numberOfCardsBehind - 1;
+    for (NSInteger i = 0; i < self.numberOfCards; i++) {
+        CFLCardStackNode *nextNode = [[CFLCardStackNode alloc] initWithCardIndex:i];
+        self.currentTopNode.nextNode = nextNode;
+        self.currentTopNode = nextNode;
     }
+}
+
+-(void)putViews {
+    //TODO: Put views using [self.dataSource cardStackView:<#(CFLCardStackView *)#> cardViewForCardAtIndex:<#(NSInteger)#>] for visible nodes
+}
+
+#pragma mark - CFLCardStackViewPanGestureRecognizerDelegate
+-(void)cardPanDelegateDidStartMovingTopCard {
     
-    NSInteger lastIndex = self.numberOfCards-1;
-    for (NSInteger i = lastPeekCardIndex; i <= lastIndex; i++) {
-        CFLCardView *cardView = [self.dataSource cardStackView:self cardViewForCardAtIndex:i];
-        NSInteger translateDelta = -30 * (lastIndex - i);
-        cardView.transform = CGAffineTransformMakeTranslation(0, translateDelta);
-        CGFloat scaleDelta = 1.f - ((float)lastIndex - (float)i)/(float)lastIndex;
-        cardView.transform = CGAffineTransformScale(cardView.transform, scaleDelta, scaleDelta);
-        [self addSubview:cardView];
-    }
+}
+
+-(void)cardPanDelegateDidMoveTopCard:(CGFloat)delta {
+    NSLog(@"cardPanDelegateDidMoveTopCard: %.3f", delta);
+}
+
+-(void)cardPanDelegateDidCancelSwipe {
+    
+}
+-(void)cardPanDelegateDidSwipe {
+    
+}
+
+-(CFLCardView *)topCardView {
+    return _topCardView;
 }
 
 @end
