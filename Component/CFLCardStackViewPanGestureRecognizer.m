@@ -8,6 +8,12 @@
 
 #import "CFLCardStackViewPanGestureRecognizer.h"
 
+@interface CFLCardStackViewPanGestureRecognizer () {
+    BOOL isRemoving;
+}
+
+@end
+
 @implementation CFLCardStackViewPanGestureRecognizer
 
 -(id)init {
@@ -50,9 +56,11 @@
     topCardView.transform = CGAffineTransformMakeTranslation(deltaX, deltaY);
     if (fabs(deltaX) > 100 || fabs(deltaY) > 100) {
         topCardView.alpha = 0.9;
+        isRemoving = YES;
     }
     else {
         topCardView.alpha = 1;
+        isRemoving = NO;
     }
     CGFloat delta;
     if (fabs(deltaX) > fabs(deltaY))
@@ -69,10 +77,26 @@
 -(void)ended {
     CFLCardView *topCardView = [self.cardStackPanGestureDelegate topCardView];
     
-    [UIView animateWithDuration:0.3 animations:^    {
-        topCardView.transform = CGAffineTransformMakeTranslation(0, 0);
-        topCardView.alpha = 1;
-    }];
+    if (!isRemoving) {
+        [UIView animateWithDuration:0.3 animations:^    {
+            topCardView.transform = CGAffineTransformMakeTranslation(0, 0);
+            topCardView.alpha = 1;
+        } completion:^(BOOL finished) {
+            [self.cardStackPanGestureDelegate cardPanDelegateDidCancelSwipe];
+        }];
+    }
+    else {
+        CGPoint translation = [self translationInView:topCardView];
+        CGFloat deltaX = translation.x;
+        CGFloat deltaY = translation.y;
+        
+        [UIView animateWithDuration:0.3 animations:^{
+            topCardView.transform = CGAffineTransformMakeTranslation(deltaX*10, deltaY*10);
+            topCardView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [self.cardStackPanGestureDelegate cardPanDelegateDidSwipe];
+        }];
+    }
 }
 
 @end

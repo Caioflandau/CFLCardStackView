@@ -19,7 +19,18 @@
 }
 
 -(NSString *)description {
-    return [NSString stringWithFormat:@"\n(cardIndex: %d, cardView: %@)", self.cardIndex, self.cardView];
+    return [NSString stringWithFormat:@"(%d -> [%d] -> %d)", (int)self.previousNode.cardIndex, (int)self.cardIndex, (int)self.nextNode.cardIndex];
+}
+
+-(BOOL)isEqual:(id)object {
+    if (![object isKindOfClass:[self class]])
+        return NO;
+    
+    CFLCardStackNode *other = object;
+    if (other.cardIndex != self.cardIndex)
+        return NO;
+    
+    return YES;
 }
 
 @end
