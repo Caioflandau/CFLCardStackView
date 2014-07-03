@@ -54,22 +54,25 @@
     else {
         topCardView.alpha = 1;
     }
-    CGFloat delta = deltaX > deltaY ? deltaX : deltaY;
-    if (delta > 100) {
-        delta = 100.0;
-    }
-    delta = delta / 100.0;
-    [self.cardStackPanGestureDelegate cardPanDelegateDidMoveTopCard:delta];
+    CGFloat delta;
+    if (fabs(deltaX) > fabs(deltaY))
+        delta = fabs(deltaX);
+    else
+        delta = fabs(deltaY);
+    
+    if (delta > 100)
+        delta = 100;
+    
+    [self.cardStackPanGestureDelegate cardPanDelegateDidMoveTopCard:delta/100.0];
 }
 
 -(void)ended {
     CFLCardView *topCardView = [self.cardStackPanGestureDelegate topCardView];
     
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.3 animations:^    {
         topCardView.transform = CGAffineTransformMakeTranslation(0, 0);
         topCardView.alpha = 1;
     }];
-    [self.cardStackPanGestureDelegate cardPanDelegateDidEndMovingTopCard];
 }
 
 @end

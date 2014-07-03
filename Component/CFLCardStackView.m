@@ -8,20 +8,19 @@
 
 #import "CFLCardStackView.h"
 #import "CFLCardStackViewPanGestureRecognizer.h"
-#import "CFLCardStackNode.m"
+#import "CFLCardStackNode.h"
 
 #define TRANSLATION_OFFSET -30
 
 @interface CFLCardStackView () <CFLCardStackViewPanGestureRecognizerDelegate>
 
-@property CFLCardStackNode *currentTopNode;
-
 @property NSUInteger numberOfCards;
+
 @end
 
 @implementation CFLCardStackView
 
-@synthesize topCardView = _topCardView;
+@synthesize topCardNode = _topCardNode;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -31,6 +30,7 @@
         gestureRecognizer.cardStackPanGestureDelegate = self;
         [self addGestureRecognizer:gestureRecognizer];
         self.numberOfCardsBehind = 2;
+        self.cardSpreadDistance = 5;
         [self reloadData];
     }
     return self;
@@ -43,22 +43,58 @@
     else {
         self.numberOfCards = 0;
     }
+    [self removeAllCards];
     [self constructLinkedList];
     [self putViews];
 }
 
+-(void)removeAllCards {
+    CFLCardStackNode *startingNode = self.topCardNode;
+    CFLCardStackNode *node = startingNode.nextNode;
+    do {
+        [node.cardView removeFromSuperview];
+        node = node.nextNode;
+    } while (node != startingNode);
+}
+
 -(void)constructLinkedList {
-    self.currentTopNode = [[CFLCardStackNode alloc] initWithCardIndex:0];
+    
+    CFLCardStackNode *lastNode = nil;
     
     for (NSInteger i = 0; i < self.numberOfCards; i++) {
-        CFLCardStackNode *nextNode = [[CFLCardStackNode alloc] initWithCardIndex:i];
-        self.currentTopNode.nextNode = nextNode;
-        self.currentTopNode = nextNode;
+        CFLCardStackNode *node = [[CFLCardStackNode alloc] initWithCardIndex:i];
+        node.nextNode = lastNode;
+        lastNode.previousNode = node;
+        lastNode = node;
+        _topCardNode = node;
+        NSLog(@"%@", node);
     }
 }
 
 -(void)putViews {
-    //TODO: Put views using [self.dataSource cardStackView:<#(CFLCardStackView *)#> cardViewForCardAtIndex:<#(NSInteger)#>] for visible nodes
+    CFLCardStackNode *node = self.topCardNode;
+    for (NSInteger i = 0; i < self.numberOfCardsBehind+1; i++) {
+        if (node.cardView == nil)
+            node.cardView = [self.dataSource cardStackView:self cardViewForCardAtIndex:node.cardIndex];
+        
+        [self addSubview:node.cardView];
+        [self sendSubviewToBack:node.cardView];
+        node = node.nextNode;
+    }
+    [self layoutCardViews];
+}
+
+-(void)layoutCardViews {
+    CFLCardStackNode *node = self.topCardNode;
+    for (NSInteger i = 0; i < self.numberOfCardsBehind+1; i++) {
+        CGFloat scaleRatio = 1.0 - (i*0.1);
+        CGFloat translateValue = (-0.5*((1.0-scaleRatio) * node.cardView.frame.size.height)) - (i*self.cardSpreadDistance);
+        
+        CGAffineTransform transform = CGAffineTransformMakeTranslation(0, translateValue);
+        transform = CGAffineTransformScale(transform, scaleRatio, scaleRatio);
+        node.cardView.transform = transform;
+        node = node.nextNode;
+    }
 }
 
 #pragma mark - CFLCardStackViewPanGestureRecognizerDelegate
@@ -78,7 +114,7 @@
 }
 
 -(CFLCardView *)topCardView {
-    return _topCardView;
+    return self.topCardNode.cardView;
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CFLCardView.h"
+#import "CFLCardStackNode.h"
 
 @protocol CFLCardStackViewDelegate;
 @protocol CFLCardStackViewDataSource;
@@ -17,12 +18,18 @@
 @property (weak) id<CFLCardStackViewDataSource> dataSource;
 @property (weak) id<CFLCardStackViewDelegate> delegate;
 
-@property (weak, readonly) CFLCardView *topCardView;
+@property (weak, readonly) CFLCardStackNode *topCardNode;
 
 /**
  Number of cards to peek behind the top card. Default is 2;
  */
 @property NSInteger numberOfCardsBehind;
+
+
+/**
+ Distance between two consecutive cards in a stack. Defaults to 5;
+ */
+@property NSInteger cardSpreadDistance;
 
 -(void)reloadData;
 

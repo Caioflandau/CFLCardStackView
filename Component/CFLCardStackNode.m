@@ -18,4 +18,8 @@
     return self;
 }
 
+-(NSString *)description {
+    return [NSString stringWithFormat:@"\n(cardIndex: %d, cardView: %@)", self.cardIndex, self.cardView];
+}
+
 @end

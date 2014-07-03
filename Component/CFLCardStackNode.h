@@ -14,8 +14,8 @@
 @property (weak) CFLCardView *cardView;
 @property NSInteger cardIndex;
 
-@property CFLCardStackNode *previousNode;
 @property CFLCardStackNode *nextNode;
+@property CFLCardStackNode *previousNode;
 
 
 -(id)initWithCardIndex:(NSInteger)cardIndex;
