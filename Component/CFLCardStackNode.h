@@ -17,7 +17,8 @@
 @property CFLCardStackNode *nextNode;
 @property CFLCardStackNode *previousNode;
 
-
 -(id)initWithCardIndex:(NSInteger)cardIndex;
+-(id)initWithCardIndex:(NSInteger)cardIndex andNextNode:(CFLCardStackNode*)nextNode;
+-(id)initWithCardIndex:(NSInteger)cardIndex andPreviousNode:(CFLCardStackNode*)previousNode;
 
 @end

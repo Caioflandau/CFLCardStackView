@@ -18,6 +18,24 @@
     return self;
 }
 
+-(id)initWithCardIndex:(NSInteger)cardIndex andNextNode:(CFLCardStackNode*)nextNode {
+    self = [super init];
+    if (self) {
+        self.cardIndex = cardIndex;
+        self.nextNode = nextNode;
+    }
+    return self;
+}
+
+-(id)initWithCardIndex:(NSInteger)cardIndex andPreviousNode:(CFLCardStackNode *)previousNode {
+    self = [super init];
+    if (self) {
+        self.cardIndex = cardIndex;
+        self.previousNode = previousNode;
+    }
+    return self;
+}
+
 -(NSString *)description {
     return [NSString stringWithFormat:@"(%d -> [%d] -> %d)", (int)self.previousNode.cardIndex, (int)self.cardIndex, (int)self.nextNode.cardIndex];
 }

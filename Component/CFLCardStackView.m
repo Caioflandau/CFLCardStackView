@@ -44,8 +44,10 @@
         self.numberOfCards = 0;
     }
     [self removeAllCards];
-    [self constructLinkedList];
-    [self putViews];
+    if (self.numberOfCards > 0) {
+        [self constructLinkedList];
+        [self printLinkedList];
+    }
 }
 
 -(void)removeAllCards {
@@ -67,41 +69,21 @@
     NSInteger i = 0;
     do {
         i++;
-        CFLCardStackNode *nextNode = [[CFLCardStackNode alloc] initWithCardIndex:i];
-        nextNode.nextNode = node;
-        node.previousNode = nextNode;
-        node = nextNode;
-    } while (node.cardIndex < self.numberOfCards);
-    
-    firstNode.nextNode = node;
+        CFLCardStackNode *newNode = [[CFLCardStackNode alloc] initWithCardIndex:i andPreviousNode:node];
+        node.nextNode = newNode;
+        node = newNode;
+    } while (i < self.numberOfCards-1);
+    node.nextNode = firstNode;
+    firstNode.previousNode = node;
     _topCardNode = node;
 }
 
--(void)putViews {
+-(void)printLinkedList {
     CFLCardStackNode *node = self.topCardNode;
-    for (NSInteger i = 0; i < self.numberOfCardsBehind+1; i++) {
-        if (node.cardView == nil)
-            node.cardView = [self.dataSource cardStackView:self cardViewForCardAtIndex:node.cardIndex];
-        
-        [self addSubview:node.cardView];
-        [self sendSubviewToBack:node.cardView];
+    do {
+        NSLog(@"%@", node);
         node = node.nextNode;
-    }
-    [self layoutCardViews];
-}
-
--(void)layoutCardViews {
-    CFLCardStackNode *node = self.topCardNode;
-    
-    for (NSInteger i = 0; i < self.numberOfCardsBehind+1; i++) {
-        CGFloat scaleRatio = 1.0 - (i*0.1);
-        CGFloat translateValue = (-0.5*((1.0-scaleRatio) * node.cardView.frame.size.height)) - (i*self.cardSpreadDistance);
-        
-        CGAffineTransform translate = CGAffineTransformMakeTranslation(0, translateValue);
-        CGAffineTransform scale = CGAffineTransformScale(translate, scaleRatio, scaleRatio);
-        node.cardView.transform = scale;
-        node = node.nextNode;
-    }
+    }while (node != nil);
 }
 
 #pragma mark - CFLCardStackViewPanGestureRecognizerDelegate
@@ -116,12 +98,6 @@
     
 }
 -(void)cardPanDelegateDidSwipe {
-    self.topCardNode.cardView.transform = CGAffineTransformMakeScale(1, 1);
-    self.topCardNode.cardView.alpha = 1;
-    [self.topCardNode.cardView removeFromSuperview];
-    self.topCardNode.cardView = nil;
-    _topCardNode = self.topCardNode.nextNode;
-    [self layoutCardViews];
 }
 
 -(CFLCardView *)topCardView {
