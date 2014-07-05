@@ -10,8 +10,6 @@
 #import "CFLCardStackViewPanGestureRecognizer.h"
 #import "CFLCardStackNode.h"
 
-#define TRANSLATION_OFFSET -30
-
 @interface CFLCardStackView () <CFLCardStackViewPanGestureRecognizerDelegate>
 
 @property NSUInteger numberOfCards;
@@ -23,6 +21,8 @@
 @implementation CFLCardStackView
 
 @synthesize topCardNode = _topCardNode;
+@synthesize numberOfCardsBehind = _numberOfCardsBehind;
+
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -114,19 +114,20 @@
     }
     if (cardNode.cardView.alpha == 0) {
         cardNode.cardView.transform = CGAffineTransformMakeTranslation(0, self.cardSpreadDistance * distance);
-        [UIView animateWithDuration:0.2 animations:^{
-            cardNode.cardView.alpha = 1;
-        }];
     }
+    
+    CGAffineTransform transform = CGAffineTransformMakeScale(1, 1);
+    
+    transform = CGAffineTransformTranslate(transform, 0, (self.cardSpreadDistance * distance));
+    
     [UIView animateWithDuration:0.2 animations:^{
-        cardNode.cardView.transform = CGAffineTransformMakeTranslation(0, self.cardSpreadDistance * distance);
-        cardNode.cardView.alpha = 1;
+        cardNode.cardView.transform = transform;
+        cardNode.cardView.alpha = 1.0 + ((float)distance*0.1);
     }];
 }
 
 #pragma mark - CFLCardStackViewPanGestureRecognizerDelegate
 -(void)cardPanDelegateDidStartMovingTopCard {
-    
 }
 
 -(void)cardPanDelegateDidMoveTopCard:(CGFloat)delta {
@@ -141,8 +142,22 @@
     [self putNextCardView];
 }
 
+
+#pragma mark - Getter/Setter
+
 -(CFLCardView *)topCardView {
     return self.topCardNode.cardView;
+}
+
+-(void)setNumberOfCardsBehind:(NSInteger)numberOfCardsBehind {
+    _numberOfCardsBehind = numberOfCardsBehind;
+}
+
+-(NSInteger)numberOfCardsBehind {
+    if (_numberOfCardsBehind > self.numberOfCards-1) {
+        return self.numberOfCards-1;
+    }
+    return _numberOfCardsBehind;
 }
 
 @end
