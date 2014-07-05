@@ -62,7 +62,7 @@
 }
 
 -(NSInteger)numberOfCardsInStackView:(CFLCardStackView *)cardStackView {
-    return 5;
+    return 10;
 }
 
 

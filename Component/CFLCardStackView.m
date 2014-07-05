@@ -16,6 +16,8 @@
 
 @property NSUInteger numberOfCards;
 
+@property CFLCardStackNode *lastPeekingNode;
+
 @end
 
 @implementation CFLCardStackView
@@ -46,7 +48,9 @@
     [self removeAllCards];
     if (self.numberOfCards > 0) {
         [self constructLinkedList];
-        [self printLinkedList];
+        for (NSInteger i = 0; i <= self.numberOfCardsBehind; i++) {
+            [self putNextCardView];
+        }
     }
 }
 
@@ -75,15 +79,49 @@
     } while (i < self.numberOfCards-1);
     node.nextNode = firstNode;
     firstNode.previousNode = node;
-    _topCardNode = node;
+    _topCardNode = firstNode;
 }
 
--(void)printLinkedList {
-    CFLCardStackNode *node = self.topCardNode;
-    do {
-        NSLog(@"%@", node);
-        node = node.nextNode;
-    }while (node != nil);
+-(void)putNextCardView {
+    if (self.lastPeekingNode == nil) {
+        [self putCardView:self.topCardNode];
+        self.lastPeekingNode = self.topCardNode;
+    }
+    else {
+        [self putCardView:self.lastPeekingNode.nextNode];
+        self.lastPeekingNode = self.lastPeekingNode.nextNode;
+    }
+}
+
+-(void)putCardView:(CFLCardStackNode*)cardNode {
+    if (cardNode.cardView == nil) {
+        cardNode.cardView = [self.dataSource cardStackView:self cardViewForCardAtIndex:cardNode.cardIndex];
+        cardNode.cardView.alpha = 0;
+    }
+    
+    [self addSubview:cardNode.cardView];
+    [self sendSubviewToBack:cardNode.cardView];
+    [self layoutCardView:cardNode];
+}
+
+-(void)layoutCardView:(CFLCardStackNode*)cardNode {
+    CFLCardStackNode *node = cardNode;
+    NSInteger distance = 0;
+    while (node != self.topCardNode) {
+        distance--;
+        node = node.previousNode;
+        [self layoutCardView:node];
+    }
+    if (cardNode.cardView.alpha == 0) {
+        cardNode.cardView.transform = CGAffineTransformMakeTranslation(0, self.cardSpreadDistance * distance);
+        [UIView animateWithDuration:0.2 animations:^{
+            cardNode.cardView.alpha = 1;
+        }];
+    }
+    [UIView animateWithDuration:0.2 animations:^{
+        cardNode.cardView.transform = CGAffineTransformMakeTranslation(0, self.cardSpreadDistance * distance);
+        cardNode.cardView.alpha = 1;
+    }];
 }
 
 #pragma mark - CFLCardStackViewPanGestureRecognizerDelegate
@@ -98,6 +136,9 @@
     
 }
 -(void)cardPanDelegateDidSwipe {
+    [self.topCardNode.cardView removeFromSuperview];
+    _topCardNode = self.topCardNode.nextNode;
+    [self putNextCardView];
 }
 
 -(CFLCardView *)topCardView {

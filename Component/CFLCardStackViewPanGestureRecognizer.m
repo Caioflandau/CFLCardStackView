@@ -90,10 +90,13 @@
         CGFloat deltaX = translation.x;
         CGFloat deltaY = translation.y;
         
+        CGAffineTransform currentTransform = topCardView.transform;
+        
         [UIView animateWithDuration:0.3 animations:^{
-            topCardView.transform = CGAffineTransformMakeTranslation(deltaX*10, deltaY*10);
+            topCardView.transform = CGAffineTransformMakeTranslation(deltaX*3, deltaY*3);
             topCardView.alpha = 0;
         } completion:^(BOOL finished) {
+            topCardView.transform = currentTransform;
             [self.cardStackPanGestureDelegate cardPanDelegateDidSwipe];
         }];
     }
