@@ -101,7 +101,13 @@
     
     [self addSubview:cardNode.cardView];
     [self sendSubviewToBack:cardNode.cardView];
-    [self layoutCardView:cardNode];
+    
+    do {
+        [self layoutCardView:cardNode];
+        cardNode = cardNode.previousNode;
+    } while (cardNode != self.topCardNode);
+
+    [self layoutCardView:self.topCardNode];
 }
 
 -(void)layoutCardView:(CFLCardStackNode*)cardNode {
@@ -110,19 +116,23 @@
     while (node != self.topCardNode) {
         distance--;
         node = node.previousNode;
-        [self layoutCardView:node];
     }
     if (cardNode.cardView.alpha == 0) {
         cardNode.cardView.transform = CGAffineTransformMakeTranslation(0, self.cardSpreadDistance * distance);
     }
+
+    CGAffineTransform transform = CGAffineTransformMakeTranslation(0, distance*self.cardSpreadDistance);
     
-    CGAffineTransform transform = CGAffineTransformMakeScale(1, 1);
+    CGFloat scaleRatio = -(self.cardSpreadDistance*distance*2.0);
+    scaleRatio = (cardNode.cardView.frame.size.height - scaleRatio) / cardNode.cardView.frame.size.height;
     
-    transform = CGAffineTransformTranslate(transform, 0, (self.cardSpreadDistance * distance));
+    NSLog(@"scaleRatio %f", scaleRatio);
+    
+    transform = CGAffineTransformScale(transform, scaleRatio, 1.0);
     
     [UIView animateWithDuration:0.2 animations:^{
         cardNode.cardView.transform = transform;
-        cardNode.cardView.alpha = 1.0 + ((float)distance*0.1);
+        cardNode.cardView.alpha = 1.0/* + ((float)distance*0.1)*/;
     }];
 }
 

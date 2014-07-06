@@ -22,7 +22,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    cardStackView = [[CFLCardStackView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    cardStackView = [[CFLCardStackView alloc] initWithFrame:CGRectMake(0, 30, self.view.frame.size.width-60, self.view.frame.size.height-60)];
     cardStackView.delegate = self;
     cardStackView.dataSource = self;
     [self.view addSubview:cardStackView];
