@@ -53,7 +53,7 @@
     CGPoint translation = [self translationInView:topCardView];
     CGFloat deltaX = translation.x/1.5;
     CGFloat deltaY = translation.y/1.5;
-    topCardView.transform = CGAffineTransformMakeTranslation(deltaX, deltaY);
+//    topCardView.transform = CGAffineTransformMakeTranslation(deltaX, deltaY);
     if (fabs(deltaX) > 100 || fabs(deltaY) > 100) {
         topCardView.alpha = 0.9;
         isRemoving = YES;
@@ -64,12 +64,18 @@
     }
     CGFloat delta;
     if (fabs(deltaX) > fabs(deltaY))
-        delta = fabs(deltaX);
+        delta = deltaX;
     else
-        delta = fabs(deltaY);
+        delta = deltaY;
     
     if (delta > 100)
         delta = 100;
+    
+    CGFloat rotationDelta = translation.x > 150 ? 150 : translation.x;
+    
+    CGFloat multiplier = [self rotationMultiplierForTouchAtPoint:[self locationOfTouch:0 inView:topCardView]];
+    topCardView.layer.transform = CATransform3DMakeRotation(multiplier * ((M_PI_4/2.0) * rotationDelta/100.0), 0.0, 0.0, 1.0);
+    topCardView.layer.transform = CATransform3DTranslate(topCardView.layer.transform, deltaX, deltaY, 0);
     
     [self.cardStackPanGestureDelegate cardPanDelegateDidMoveTopCard:delta/100.0];
 }
@@ -108,6 +114,16 @@
             [self.cardStackPanGestureDelegate cardPanDelegateDidSwipe];
         }];
     }
+}
+
+-(CGFloat)rotationMultiplierForTouchAtPoint:(CGPoint)touchPoint {
+    NSInteger height = CGRectGetHeight([self.cardStackPanGestureDelegate topCardView].frame);
+    
+    CGFloat angleY = ((((CGFloat)touchPoint.y / (CGFloat)height) * 100) / 180.0 * M_PI);
+    
+    CGFloat multiplier = 1 + (-1 * (sin(angleY) * 1.8));
+    
+    return multiplier;
 }
 
 @end

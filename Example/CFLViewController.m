@@ -22,11 +22,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    cardStackView = [[CFLCardStackView alloc] initWithFrame:CGRectMake(0, 30, self.view.frame.size.width-60, self.view.frame.size.height-60)];
+    cardStackView = [[CFLCardStackView alloc] initWithFrame:CGRectMake(30, 30, self.view.frame.size.width-60, self.view.frame.size.height-60)];
     cardStackView.delegate = self;
     cardStackView.dataSource = self;
     [self.view addSubview:cardStackView];
-    cardStackView.numberOfCardsBehind = 1;
+    cardStackView.numberOfCardsBehind = 2;
     cardStackView.cardSpreadDistance = 15;
     viewControllers = [[NSMutableArray alloc] init];
     [cardStackView reloadData];
@@ -50,7 +50,7 @@
     if (viewControllers.count <= cardIndex) {
         CFLExampleCardViewController *vc = [[CFLExampleCardViewController alloc] init];
         [viewControllers addObject:vc];
-        vc.view.frame = CGRectMake(25, 80, self.view.frame.size.width-50, self.view.frame.size.height-160);
+        vc.view.frame = CGRectMake(0, 80, self.view.frame.size.width-50, self.view.frame.size.height-160);
         vc.view.backgroundColor = [self randomColor];
         cardVc = vc;
     }
