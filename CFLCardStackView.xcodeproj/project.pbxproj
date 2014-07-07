@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2542F20B196448D400C9C6B4 /* CFLCardStackViewPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2542F20A196448D400C9C6B4 /* CFLCardStackViewPanGestureRecognizer.m */; };
 		2542F20E1964B93E00C9C6B4 /* CFLCardStackNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2542F20D1964B93E00C9C6B4 /* CFLCardStackNode.m */; };
+		255BFF8B196B07C600CE6E51 /* CFLCardStackViewTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 255BFF8A196B07C600CE6E51 /* CFLCardStackViewTapGestureRecognizer.m */; };
 		2588C8D719634DDD0022309C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2588C8D619634DDD0022309C /* Foundation.framework */; };
 		2588C8D919634DDD0022309C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2588C8D819634DDD0022309C /* CoreGraphics.framework */; };
 		2588C8DB19634DDD0022309C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2588C8DA19634DDD0022309C /* UIKit.framework */; };
@@ -42,6 +43,8 @@
 		2542F20A196448D400C9C6B4 /* CFLCardStackViewPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFLCardStackViewPanGestureRecognizer.m; sourceTree = "<group>"; };
 		2542F20C1964B93E00C9C6B4 /* CFLCardStackNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFLCardStackNode.h; sourceTree = "<group>"; };
 		2542F20D1964B93E00C9C6B4 /* CFLCardStackNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFLCardStackNode.m; sourceTree = "<group>"; };
+		255BFF89196B07C600CE6E51 /* CFLCardStackViewTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFLCardStackViewTapGestureRecognizer.h; sourceTree = "<group>"; };
+		255BFF8A196B07C600CE6E51 /* CFLCardStackViewTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFLCardStackViewTapGestureRecognizer.m; sourceTree = "<group>"; };
 		2588C8D319634DDD0022309C /* CFLCardStackView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CFLCardStackView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2588C8D619634DDD0022309C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2588C8D819634DDD0022309C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -160,6 +163,8 @@
 				2542F20A196448D400C9C6B4 /* CFLCardStackViewPanGestureRecognizer.m */,
 				2542F20C1964B93E00C9C6B4 /* CFLCardStackNode.h */,
 				2542F20D1964B93E00C9C6B4 /* CFLCardStackNode.m */,
+				255BFF89196B07C600CE6E51 /* CFLCardStackViewTapGestureRecognizer.h */,
+				255BFF8A196B07C600CE6E51 /* CFLCardStackViewTapGestureRecognizer.m */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 				2542F20E1964B93E00C9C6B4 /* CFLCardStackNode.m in Sources */,
 				2588C91119634E700022309C /* CFLCardView.m in Sources */,
 				2588C8E719634DDD0022309C /* CFLAppDelegate.m in Sources */,
+				255BFF8B196B07C600CE6E51 /* CFLCardStackViewTapGestureRecognizer.m in Sources */,
 				2588C91019634E700022309C /* CFLCardStackView.m in Sources */,
 				2588C8E319634DDD0022309C /* main.m in Sources */,
 				2588C8ED19634DDD0022309C /* CFLViewController.m in Sources */,

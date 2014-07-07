@@ -69,7 +69,7 @@
 #pragma mark - CFLCardStackViewDelegate
 
 -(void)cardStackView:(CFLCardStackView *)cardStackView didSelectTopCard:(CFLCardView *)topCardView {
-    
+    NSLog(@"didSelectTopCard");
 }
 
 

@@ -9,8 +9,9 @@
 #import "CFLCardStackView.h"
 #import "CFLCardStackViewPanGestureRecognizer.h"
 #import "CFLCardStackNode.h"
+#import "CFLCardStackViewTapGestureRecognizer.h"
 
-@interface CFLCardStackView () <CFLCardStackViewPanGestureRecognizerDelegate>
+@interface CFLCardStackView () <CFLCardStackViewPanGestureRecognizerDelegate, CFLCardStackViewTapGestureRecognizerDelegate>
 
 @property NSUInteger numberOfCards;
 
@@ -30,7 +31,13 @@
     if (self) {
         CFLCardStackViewPanGestureRecognizer *gestureRecognizer = [[CFLCardStackViewPanGestureRecognizer alloc] init];
         gestureRecognizer.cardStackPanGestureDelegate = self;
+        
+        CFLCardStackViewTapGestureRecognizer *tapGestureRecognizer = [[CFLCardStackViewTapGestureRecognizer alloc] init];
+        tapGestureRecognizer.cardStackTapGestureDelegate = self;
+        
+        [self addGestureRecognizer:tapGestureRecognizer];
         [self addGestureRecognizer:gestureRecognizer];
+        
         self.numberOfCardsBehind = 2;
         self.cardSpreadDistance = 5;
         [self reloadData];
@@ -157,6 +164,12 @@
         return NO;
     else
         return YES;
+}
+
+-(void)didTapTopCard {
+    if ([self.delegate respondsToSelector:@selector(cardStackView:didSelectTopCard:)]) {
+        [self.delegate cardStackView:self didSelectTopCard:[self topCardView]];
+    }
 }
 
 #pragma mark - Getter/Setter

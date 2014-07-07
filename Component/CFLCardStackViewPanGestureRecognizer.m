@@ -8,7 +8,7 @@
 
 #import "CFLCardStackViewPanGestureRecognizer.h"
 
-@interface CFLCardStackViewPanGestureRecognizer () {
+@interface CFLCardStackViewPanGestureRecognizer () <UIGestureRecognizerDelegate> {
     BOOL isRemoving;
 }
 
@@ -19,11 +19,10 @@
 -(id)init {
     self = [super initWithTarget:self action:@selector(gestureStateChanged)];
     if (self) {
-        
+        self.delegate = self;
     }
     return self;
 }
-
 
 -(void)gestureStateChanged {
     switch (self.state) {
@@ -53,7 +52,7 @@
     CGPoint translation = [self translationInView:topCardView];
     CGFloat deltaX = translation.x/1.5;
     CGFloat deltaY = translation.y/1.5;
-//    topCardView.transform = CGAffineTransformMakeTranslation(deltaX, deltaY);
+    
     if (fabs(deltaX) > 100 || fabs(deltaY) > 100) {
         topCardView.alpha = 0.9;
         isRemoving = YES;
