@@ -48,7 +48,8 @@
 }
 
 -(void)changed {
-    CFLCardView *topCardView = [self.cardStackPanGestureDelegate topCardView];
+    CFLCardView *topCardView = [self.cardStackPanGestureDelegate topCardNode].cardView;
+    
     CGPoint translation = [self translationInView:topCardView];
     CGFloat deltaX = translation.x/1.5;
     CGFloat deltaY = translation.y/1.5;
@@ -80,7 +81,7 @@
 }
 
 -(void)ended {
-    CFLCardView *topCardView = [self.cardStackPanGestureDelegate topCardView];
+    CFLCardView *topCardView = [self.cardStackPanGestureDelegate topCardNode].cardView;
     
     BOOL shouldRemove = YES;
     
@@ -91,7 +92,7 @@
     }
     
     if (!isRemoving || !shouldRemove) {
-        [UIView animateWithDuration:0.3 animations:^    {
+        [UIView animateWithDuration:0.3 animations:^{
             topCardView.transform = CGAffineTransformMakeTranslation(0, 0);
             topCardView.alpha = 1;
         } completion:^(BOOL finished) {
@@ -116,7 +117,7 @@
 }
 
 -(CGFloat)rotationMultiplierForTouchAtPoint:(CGPoint)touchPoint {
-    NSInteger height = CGRectGetHeight([self.cardStackPanGestureDelegate topCardView].frame);
+    NSInteger height = CGRectGetHeight([self.cardStackPanGestureDelegate topCardNode].cardView.frame);
     
     CGFloat angleY = ((((CGFloat)touchPoint.y / (CGFloat)height) * 100) / 180.0 * M_PI);
     

@@ -148,6 +148,7 @@
 }
 
 -(void)cardPanDelegateDidMoveTopCard:(CGFloat)delta {
+    
 }
 
 -(void)cardPanDelegateDidCancelSwipe {

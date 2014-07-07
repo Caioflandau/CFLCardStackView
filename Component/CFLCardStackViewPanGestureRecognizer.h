@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CFLCardView.h"
+#import "CFLCardStackNode.h"
 
 @protocol CFLCardStackViewPanGestureRecognizerDelegate <NSObject>
 
@@ -18,7 +19,8 @@
 
 -(BOOL)shouldSwipeAway;
 
--(CFLCardView*)topCardView;
+//-(CFLCardView*)topCardView;
+-(CFLCardStackNode*)topCardNode;
 
 @end
 
