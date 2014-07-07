@@ -26,8 +26,8 @@
     cardStackView.delegate = self;
     cardStackView.dataSource = self;
     [self.view addSubview:cardStackView];
-    cardStackView.numberOfCardsBehind = 3;
-    cardStackView.cardSpreadDistance = 20;
+    cardStackView.numberOfCardsBehind = 1;
+    cardStackView.cardSpreadDistance = 15;
     viewControllers = [[NSMutableArray alloc] init];
     [cardStackView reloadData];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -62,7 +62,7 @@
 }
 
 -(NSInteger)numberOfCardsInStackView:(CFLCardStackView *)cardStackView {
-    return 10;
+    return 5;
 }
 
 

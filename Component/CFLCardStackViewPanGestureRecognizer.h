@@ -16,6 +16,8 @@
 -(void)cardPanDelegateDidCancelSwipe;
 -(void)cardPanDelegateDidSwipe;
 
+-(BOOL)shouldSwipeAway;
+
 -(CFLCardView*)topCardView;
 
 @end

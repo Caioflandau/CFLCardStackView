@@ -152,6 +152,12 @@
     [self putNextCardView];
 }
 
+-(BOOL)shouldSwipeAway {
+    if (self.numberOfCards <= 1)
+        return NO;
+    else
+        return YES;
+}
 
 #pragma mark - Getter/Setter
 

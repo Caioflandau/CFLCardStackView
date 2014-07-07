@@ -77,7 +77,15 @@
 -(void)ended {
     CFLCardView *topCardView = [self.cardStackPanGestureDelegate topCardView];
     
-    if (!isRemoving) {
+    BOOL shouldRemove = YES;
+    
+    if (isRemoving) {
+        if ([self.cardStackPanGestureDelegate respondsToSelector:@selector(shouldSwipeAway)]) {
+            shouldRemove = [self.cardStackPanGestureDelegate shouldSwipeAway];
+        }
+    }
+    
+    if (!isRemoving || !shouldRemove) {
         [UIView animateWithDuration:0.3 animations:^    {
             topCardView.transform = CGAffineTransformMakeTranslation(0, 0);
             topCardView.alpha = 1;
