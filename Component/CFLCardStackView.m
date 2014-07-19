@@ -11,7 +11,9 @@
 #import "CFLCardStackNode.h"
 #import "CFLCardStackViewTapGestureRecognizer.h"
 
-@interface CFLCardStackView () <CFLCardStackViewPanGestureRecognizerDelegate, CFLCardStackViewTapGestureRecognizerDelegate>
+@interface CFLCardStackView () <CFLCardStackViewPanGestureRecognizerDelegate, CFLCardStackViewTapGestureRecognizerDelegate> {
+    CFLCardStackViewTapGestureRecognizer *tapGestureRecognizer;
+}
 
 @property NSUInteger numberOfCards;
 
@@ -32,10 +34,9 @@
         CFLCardStackViewPanGestureRecognizer *gestureRecognizer = [[CFLCardStackViewPanGestureRecognizer alloc] init];
         gestureRecognizer.cardStackPanGestureDelegate = self;
         
-        CFLCardStackViewTapGestureRecognizer *tapGestureRecognizer = [[CFLCardStackViewTapGestureRecognizer alloc] init];
+        tapGestureRecognizer = [[CFLCardStackViewTapGestureRecognizer alloc] init];
         tapGestureRecognizer.cardStackTapGestureDelegate = self;
         
-        [self addGestureRecognizer:tapGestureRecognizer];
         [self addGestureRecognizer:gestureRecognizer];
         
         self.numberOfCardsBehind = 2;
@@ -58,6 +59,7 @@
         for (NSInteger i = 0; i <= self.numberOfCardsBehind; i++) {
             [self putNextCardView];
         }
+        [self.topCardNode.cardView addGestureRecognizer:tapGestureRecognizer];
     }
 }
 
@@ -155,7 +157,9 @@
     
 }
 -(void)cardPanDelegateDidSwipe {
+    [self.topCardNode.cardView removeGestureRecognizer:tapGestureRecognizer];
     _topCardNode = self.topCardNode.nextNode;
+    [self.topCardNode.cardView addGestureRecognizer:tapGestureRecognizer];
     [self putNextCardView];
 }
 
