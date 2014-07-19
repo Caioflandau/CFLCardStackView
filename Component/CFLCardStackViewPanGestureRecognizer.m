@@ -100,6 +100,8 @@
         }];
     }
     else {
+        [self.cardStackPanGestureDelegate cardPanDelegateDidSwipe];
+        
         CGPoint translation = [self translationInView:topCardView];
         CGFloat deltaX = translation.x;
         CGFloat deltaY = translation.y;
@@ -111,7 +113,7 @@
             topCardView.alpha = 0;
         } completion:^(BOOL finished) {
             topCardView.transform = currentTransform;
-            [self.cardStackPanGestureDelegate cardPanDelegateDidSwipe];
+            [topCardView removeFromSuperview];
         }];
     }
 }

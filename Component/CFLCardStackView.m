@@ -155,7 +155,6 @@
     
 }
 -(void)cardPanDelegateDidSwipe {
-    [self.topCardNode.cardView removeFromSuperview];
     _topCardNode = self.topCardNode.nextNode;
     [self putNextCardView];
 }
