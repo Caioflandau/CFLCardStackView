@@ -41,7 +41,7 @@
         
         self.numberOfCardsBehind = 2;
         self.cardSpreadDistance = 5;
-        [self reloadData];
+//        [self reloadData];
     }
     return self;
 }
@@ -187,8 +187,8 @@
 }
 
 -(NSInteger)numberOfCardsBehind {
-    if (_numberOfCardsBehind > self.numberOfCards-1) {
-        return self.numberOfCards-1;
+    if (_numberOfCardsBehind > self.numberOfCards-2) {
+        return self.numberOfCards-2;
     }
     return _numberOfCardsBehind;
 }
