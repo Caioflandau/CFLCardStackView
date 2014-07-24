@@ -14,6 +14,9 @@
 
 @property id<CFLCardStackViewTapGestureRecognizerDelegate> cardStackTapGestureDelegate;
 
+-(void)pause;
+-(void)resume;
+
 @end
 
 @protocol CFLCardStackViewTapGestureRecognizerDelegate <NSObject>

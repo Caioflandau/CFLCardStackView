@@ -193,4 +193,14 @@
     return _numberOfCardsBehind;
 }
 
+-(void)setUserInteractionEnabled:(BOOL)userInteractionEnabled {
+    [super setUserInteractionEnabled:userInteractionEnabled];
+    if (!userInteractionEnabled) {
+        [tapGestureRecognizer pause];
+    }
+    else {
+        [tapGestureRecognizer resume];
+    }
+}
+
 @end

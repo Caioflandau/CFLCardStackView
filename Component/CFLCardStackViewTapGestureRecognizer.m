@@ -23,4 +23,12 @@
     }
 }
 
+-(void)pause {
+    [self removeTarget:self action:@selector(onTap)];
+}
+
+-(void)resume {
+    [self addTarget:self action:@selector(onTap)];
+}
+
 @end
