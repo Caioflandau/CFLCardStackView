@@ -73,6 +73,14 @@
 }
 
 
+
+#pragma mark - IBAction
+
+- (IBAction)touchUpReload:(UIButton *)sender {
+    [cardStackView reloadData];
+}
+
+
 #pragma mark - Utility
 -(UIColor*)randomColor {
     int r = arc4random()%256;

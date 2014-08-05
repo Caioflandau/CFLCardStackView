@@ -53,7 +53,6 @@
     else {
         self.numberOfCards = 0;
     }
-    self.lastPeekingNode = nil;
     [self removeAllCards];
     if (self.numberOfCards > 0) {
         [self constructLinkedList];
@@ -65,13 +64,14 @@
 }
 
 -(void)removeAllCards {
+    self.lastPeekingNode = nil;
     CFLCardStackNode *startingNode = self.topCardNode;
     CFLCardStackNode *node = startingNode.nextNode;
     do {
         [node.cardView removeFromSuperview];
         node.cardView = nil;
         node = node.nextNode;
-    } while (![node isEqual:startingNode] && node != nil);
+    } while (![node.previousNode isEqual:startingNode] && node != nil);
 }
 
 -(void)constructLinkedList {
@@ -124,9 +124,6 @@
     CFLCardStackNode *node = cardNode;
     NSInteger distance = 0;
     while (![node isEqual:self.topCardNode]) {
-        NSLog(@"node       : %@", node);
-        NSLog(@"topCardNode: %@", self.topCardNode);
-        NSLog(@"----");
         distance--;
         node = node.previousNode;
     }
