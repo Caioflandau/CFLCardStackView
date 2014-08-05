@@ -158,10 +158,14 @@
     
 }
 -(void)cardPanDelegateDidSwipe {
+    CFLCardStackNode *fromCard = self.topCardNode;
     [self.topCardNode.cardView removeGestureRecognizer:tapGestureRecognizer];
     _topCardNode = self.topCardNode.nextNode;
     [self.topCardNode.cardView addGestureRecognizer:tapGestureRecognizer];
     [self putNextCardView];
+    if ([self.delegate respondsToSelector:@selector(cardStackView:didSwitchFromCard:toCard:)]) {
+        [self.delegate cardStackView:self didSwitchFromCard:fromCard toCard:self.topCardNode];
+    }
 }
 
 -(BOOL)shouldSwipeAway {

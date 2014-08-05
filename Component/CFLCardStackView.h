@@ -45,6 +45,11 @@
  */
 -(void)cardStackView:(CFLCardStackView*)cardStackView didSelectTopCard:(CFLCardView*)topCardView;
 
+/**
+ Notify the delegate that the user has switched the top card
+ */
+-(void)cardStackView:(CFLCardStackView *)cardStackView didSwitchFromCard:(CFLCardStackNode*)fromCard toCard:(CFLCardStackNode*)toCard;
+
 @end
 
 
